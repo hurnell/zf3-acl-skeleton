@@ -1,0 +1,134 @@
+body {
+    padding: 1em 0;
+}
+
+.zf-green {
+    color: #68b604;
+}
+
+.btn-success {
+    background-color: #57a900;
+    background-image: -moz-linear-gradient(top, #70d900, #57a900);
+    background-image: -ms-linear-gradient(top, #70d900, #57a900);
+    background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#70d900), to(#57a900));
+    background-image: -webkit-linear-gradient(top, #70d900, #57a900);
+    background-image: -o-linear-gradient(top, #70d900, #57a900);
+    background-image: linear-gradient(top, #70d900, #57a900);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#70d900', endColorstr='#57a900', GradientType=0);
+}
+
+.btn-success:hover,
+.btn-success:active,
+.btn-success.active,
+.btn-success.disabled,
+.btn-success[disabled] {
+    background-color: #57a900;
+}
+
+div.container a.navbar-brand > img {
+    display: inline;
+    margin-right: 4px;
+    margin-top: -2px;
+}
+p.flag-navigation
+{
+    text-align: right;
+}
+p.flag-navigation a img {
+    margin: 1em 0 0 1em;
+    border: thin #ccc solid;
+}
+
+table.user-auth
+{
+    table-layout: fixed; 
+    width: 100%;
+}
+table.user-auth td,
+table.user-profile td
+{
+    padding: 0.5em;
+}
+table.user-auth td.right{
+    text-align: right;
+}
+
+ul.alert
+{
+    list-style: none;
+}
+
+li.hide-menu
+{
+    display: none;
+}
+
+
+table.profile
+{
+    width: 100%;
+}
+table.profile td
+{
+    padding: 0.5em;
+}
+.right{
+    text-align: right;
+}
+.center-content
+{
+    text-align: center;
+}
+
+span.pencil-icon
+{
+    position: absolute;
+    right: 1.5em;
+    font-size: 1em;
+    border: thin #ccc solid;
+    width: 1.5em;
+    height: 1.5em;
+    border-radius: 0.2em;
+}
+
+
+div#profile-div div
+{
+    text-align: center;
+    position: relative;
+}
+img#profile-image 
+{
+    margin: 1em;
+}
+div#profile-div dl 
+{
+    position: relative;
+}
+div#basic-profile-form-holder 
+{
+    width: 25em;
+}
+table.user-profile
+{
+    width: 100%;
+}
+
+input::placeholder {
+    color: #ccc;
+}
+table.table th{
+    padding-left: 1em;
+}
+table.table th.ascending {
+    background-image: url(./../img/icons/icon-arrow-up.svg);
+    background-repeat: no-repeat;
+    background-position-y: center;
+    text-indent: 1.5em; 
+}
+table.table th.descending {
+    background-image: url(./../img/icons/icon-arrow-down.svg);
+    background-repeat: no-repeat;
+    text-indent: 1.5em; 
+    background-position-y: center;
+}

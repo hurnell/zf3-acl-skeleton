@@ -1,0 +1,17 @@
+<?php
+
+return [
+    'smtp_options' => [
+        'name' => 'ApplicationAdministrator',
+        'host' => '<email-server-name>',
+        'connection_class' => 'plain',
+        'port' => 587,
+        'connection_config' => [
+            'sender' => 'Application Administrator', // will be used as sender name if not overridden
+            'username' => '<email-address>', // will be used as sender e-mail if not overridden
+            'password' => '<email-address-password>',
+            'ssl' => 'tls',
+        ],
+    ]
+];
+

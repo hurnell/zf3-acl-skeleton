@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<phpdoc>
+    <title>ZF3-Acl-Skeleton - A Zend Framework 3 Project</title>
+    <parser>
+        <target>/srv/web-content/subdomains/docs/zf3-acl-skeleton</target>
+        <encoding>utf8</encoding>
+        <extensions>
+            <extension>php</extension>
+            <extension>phtml</extension>
+        </extensions>
+    </parser>
+    <transformer>
+        <target>/srv/web-content/subdomains/docs/zf3-acl-skeleton</target>
+    </transformer>
+    <files>
+        <directory>/srv/web-content/subdomains/skeleton/module</directory>
+        <directory>/srv/web-content/subdomains/skeleton/config</directory>
+        
+        <!-- IGNORE SECURITY SENSITIVE INFORMATION -->
+        <ignore>*.local.*</ignore>
+        
+        <!-- IGNORE PHPUNIT TEST FILES  -->
+        <ignore>*/global-test/*</ignore>
+        <ignore>*/test/*</ignore>
+                  
+        <!-- SET ONLY IGNORE ACTUAL TESTS -->     
+        
+        <!--ignore>/srv/web-content/subdomains/skeleton/module/AclUser/test/Controller/*</ignore> 
+        <ignore>/srv/web-content/subdomains/skeleton/module/AclUser/test/Mail/*</ignore> 
+        <ignore>/srv/web-content/subdomains/skeleton/module/AclUser/test/Service/*</ignore> 
+        
+        <ignore>/srv/web-content/subdomains/skeleton/module/Application/test/Controller/*</ignore> 
+        <ignore>/srv/web-content/subdomains/skeleton/module/Application/test/Log/*</ignore> 
+        <ignore>/srv/web-content/subdomains/skeleton/module/Application/test/Service/*</ignore> 
+        
+        <ignore>/srv/web-content/subdomains/skeleton/module/Social/test/Controller/*</ignore> 
+        <ignore>/srv/web-content/subdomains/skeleton/module/Social/test/Providers/*</ignore> 
+        
+        <ignore>/srv/web-content/subdomains/skeleton/module/Translate/test/Controller/*</ignore> 
+        <ignore>/srv/web-content/subdomains/skeleton/module/Translate/test/Service/*</ignore> 
+        <ignore>/srv/web-content/subdomains/skeleton/module/Translate/test/View/*</ignore--> 
+        <!-- IGNORE THIRD PARTY FILES  -->
+        <ignore>*FirePHP.class.php</ignore>
+        <ignore>*ChromePhp.php</ignore>
+    </files>
+    <transformations>
+        <template name="custom-clean" />
+    </transformations>
+</phpdoc>

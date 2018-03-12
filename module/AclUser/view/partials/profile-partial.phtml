@@ -1,0 +1,46 @@
+<?php
+/**
+ * view script profile
+ *
+ * @package     AclUser
+ * @author      Nigel Hurnell
+ * @version     v.1.0.0
+ * @license     BSD
+ * @copyright   Copyright (c) 2017, Nigel Hurnell
+ */
+$this->headScript()->appendFile('/js/user/profile.js', 'text/javascript');
+$this->headScript()->appendFile('/js/resize-image/resize-image.js', 'text/javascript');
+$this->headScript()->appendFile('/js/jquery/jquery.ui.touch-punch.min.js', 'text/javascript'); // make sure drag works on mobile devices
+$this->headLink()->prependStylesheet($this->basePath('css/resize-image/resize-image.css'));
+
+$locale = $this->layout()->locale;
+?>
+<div class="center-content">
+    <img id="profile-image" src="<?= $this->url('user-id', ['action' => 'serve-user-photo', 'locale' => $locale, 'id' => $user->getId()]); ?>" />
+    <span id="update-photograph"  class="pencil-icon" title="<?= $this->translate('Update/Change Photograph') ?>" url="/<?= $locale ?>/<?= $controller ?>/ajax-get-photo-upload-form/<?= $user->getId() ?>">&#x270e;</span>
+
+</div>
+<dl>
+    <dt><?= $this->translate('Registered Since'); ?></dt>
+    <dd><?= $user->getDateCreated()->format('l j F Y'); ?></dd>
+</dl>
+<dl>
+    <dt>
+        <?= $this->translate('Name'); ?>        
+        <span  id="update-full-name"  class="pencil-icon" title="<?= $this->translate('Update Basic Information') ?>" url="/<?= $locale ?>/<?= $controller ?>/ajax-get-basic-profile-form/<?= $user->getId() ?>">&#x270e;</span>
+
+    </dt>
+    <dd>
+        <?= $user->getFullName(); ?>
+    </dd>
+</dl>
+<dl>
+    <dt>
+        <?= $this->translate('Email'); ?>
+        <span id="update-email" class="pencil-icon" title="<?= $this->translate('Update E-mail Address') ?>" url="/<?= $locale ?>/<?= $controller ?>/ajax-get-basic-profile-form/<?= $user->getId() ?>">&#x270e;</span>
+    </dt>
+    <dd>
+        <?= $user->getEmail(); ?>
+
+    </dd>
+</dl>

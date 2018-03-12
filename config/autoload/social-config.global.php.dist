@@ -1,0 +1,86 @@
+<?php
+/**
+ * Social Auth Global configuration settings
+ *
+ * @package     Config
+ * @author      Nigel Hurnell
+ * @version     v.1.0.0
+ * @license     BSD
+ * @copyright   Copyright (c) 2017, Nigel Hurnell
+ */
+
+return [
+    'social-config' => [
+        /**
+         * global doctrine entity class / must have getUser
+         */
+        'doctrine_user_entity' => \AclUser\Entity\User::class,
+        /**
+         * auth service class must extend  Zend\Authentication\AuthenticationService
+         */
+        'authentication_service' => Zend\Authentication\AuthenticationService::class,
+        /**
+         * Header for the social sign in page 
+         * note use this if you have sign in and registration on the same page         * 
+         */
+        'login_header' => 'Social Sign In',
+        /**
+         * Log in text under the login header 
+         * again use this if you have sign in and registration on the same page 
+         */
+        'login_text' => 'Sign in with your favourite social network',//'sign in or register with your favourite social network'
+        
+        /**
+         * 
+         */
+        'registration_header' => 'Social Registration',
+        /**
+         * 
+         */
+        'registration_text' => 'Social Registration',
+        /**
+         * whether Facebook social auth is enabled
+         * https://developers.facebook.com/docs/facebook-login
+         */
+        'facebook_enabled' => false,
+        /**
+         * whether Foursquare social auth is enabled
+         * https://foursquare.com/developers/apps
+         */
+        'foursquare_enabled' => false,
+        /**
+         * whether Google social auth is enabled
+         * https://console.developers.google.com/iam-admin/projects
+         */
+        'google_enabled' => false,
+        /**
+         * whether GitHub social auth is enabled
+         * https://github.com/settings/developers
+         */
+        'git_hub_enabled' => false,
+        /**
+         * whether linkedIn social auth is enabled
+         */
+        'linked_in_enabled' => false,
+        /**
+         * whether linkedIn social auth is enabled
+         * Only HTTPS!
+         */
+        'live_enabled' => false,
+        /**
+         * whether twitter social auth is enabled
+         * https://apps.twitter.com/
+         */
+        'twitter_enabled' => false,
+        /**
+         * whether Yahoo social auth is enabled
+         * https://developer.yahoo.com/apps/
+         */
+        'yahoo_enabled' => false,
+        /**
+         * whether Yandex social auth is enabled
+         */
+        'yandex_enabled' => false,
+    ],
+];
+

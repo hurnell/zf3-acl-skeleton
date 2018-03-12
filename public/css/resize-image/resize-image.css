@@ -1,0 +1,204 @@
+
+/*imageWidth, imageHeight, containerWidth, containerHeight*/
+div#hidden-views,
+input.hidden-file-input,
+button.hidden-upload-button,
+div.hidden-image-container-div,
+svg.hidden-upload-icon,
+p.hidden-file-chooser-paragraph,
+div.rectangle-mask-hidden
+{
+    display: none;
+}
+div#initial-view
+{
+    text-align: center; 
+    height: 400px; /*containerHeight*/
+    width: 300px; /*containerWidth*/
+    overflow: hidden;
+}
+div#image-container-div
+{    
+    height: 400px; /*containerHeight*/
+    width: 300px; /*containerWidth*/
+    overflow: hidden;
+    position: relative;
+}
+div#image-container-div div#image-holder
+{
+    position: absolute;
+    margin: auto;
+}
+div#image-rectangle-left
+{
+    width:1px;
+    height:160px;  /* imageHeight */
+    left: 90px; /* (containerWidth - imageWidth)/2 */
+    top:120px; /* (containerHeight - imageHeight)/2 */
+    border-left: thin black solid;
+    position: absolute;
+    z-index: 200;
+}
+div#image-rectangle-right
+{
+    width: 1px;
+    left: 210px;  /* containerWidth + (containerWidth - imageWidth)/2 */
+    top: 120px; /* (containerHeight - imageHeight)/2 */
+    height: 160px; /* imageHeight */
+    /*border-left: thin white solid;*/
+    border-right: thin black  solid;
+    position: absolute;
+    z-index: 200;
+}
+div#image-rectangle-top
+{
+    width: 120px; /* imageWidth */
+    left: 90px; /* (containerWidth - imageWidth)/2 */
+    top:120px; /* (containerHeight - imageHeight)/2 */
+    height: 1px;
+    border-top: thin black solid;
+    /* border-bottom: thin white solid;*/
+    position: absolute;
+    z-index: 200;
+}
+div#image-rectangle-bottom
+{
+    left: 90px; /* (containerWidth - imageWidth)/2 */
+    top: 280px; /* containerHeight - (containerHeight - imageHeight)/2 */
+    width: 120px; /* imageWidth */
+    height:1px;
+    border-bottom: thin black solid;
+    position: absolute;
+    z-index: 200;
+}
+div#image-rect-mask-left
+{
+    width:90px; /* (containerWidth - imageWidth)/2 */
+    height:400px; /*containerHeight*/
+    left: 0;
+    top:0;
+    background-color: white;
+    position: absolute;
+    border-bottom: thin red solid;
+    z-index: 200;
+}
+div#image-rect-mask-right
+{
+    width: 90px; /* (containerWidth - imageWidth)/2 */
+    left: 211px;  /* imageWidth + (containerWidth - imageWidth)/2 + 1 */
+    top:0;
+    height: 400px; /*containerHeight*/
+    background-color: white;
+    position: absolute;
+    z-index: 200;
+
+}
+div#image-rect-mask-top
+{
+    width: 300px; /*containerWidth*/
+    left: 0;
+    top:0;
+    height: 120px; /* (containerHeight - imageHeight)/2 */
+    background-color: white;
+    position: absolute;
+    z-index: 200;
+}
+div#image-rect-mask-bottom
+{
+    left: 0;
+    top:281px; /* containerHeight - (containerHeight - imageHeight)/2 + 1 */
+    width: 300px; /*containerWidth*/
+    height:120px; /* (containerHeight - imageHeight)/2 */
+    background-color: white;
+    position: absolute;
+    z-index: 200;
+}
+
+div#left-button
+{
+    border:thin black solid;
+    border-radius: 3px;
+    width: 100px;
+    position: absolute;
+    background-color: white;
+    z-index: 210;
+    left: 0;
+    bottom: 0;
+}
+div#right-button
+{
+    border:thin black solid;
+    border-radius: 3px;
+    width: 100px;
+    position: absolute;
+    background-color: white;
+    z-index: 210;
+    right: 0;
+    bottom: 0;
+}
+div.image-container-black
+{   
+    background-color: black;
+}
+form.drag-and-drop-image-form {
+    margin: auto;
+    position: relative;
+    padding-top: 40%;
+    /* border: thin red solid; */
+    height: 100%;
+}
+div#initial-view.is-dragover{
+    background-color:lightsteelblue
+}
+div#vertical-slider
+{
+    border: thin solid #ccc;
+    border-radius: 5px;
+    background-color: #eee;
+    width: 10px;
+    height: 340px; /* containerHeight - border that you want x 2  */
+    position:absolute;
+    right: 10px;
+    top: 30px;/*border that you want at least 30 see rotate button svg */
+    z-index: 220;
+}
+.ui-slider-handle {    
+    border: thin #8f2727 solid;
+    border-radius: 3px;
+    background-color: #8f2727;
+}
+div#rotate-button {
+    position: absolute;
+    z-index: 220;
+    bottom: 0;
+    left: 50%;
+    margin-left: -12px;
+}
+div#display-button {
+    position: absolute;
+}
+.ui-slider { position: relative; text-align: left; }
+.ui-slider .ui-slider-handle { position: absolute; z-index: 2; width: 1.2em; height: 1.2em; cursor: default; }
+.ui-slider .ui-slider-range { position: absolute; z-index: 1; font-size: .7em; display: block; border: 0; background-position: 0 0; }
+
+.ui-slider-horizontal { height: .8em; }
+.ui-slider-horizontal .ui-slider-handle { top: -.3em; margin-left: -.6em; }
+.ui-slider-horizontal .ui-slider-range { top: 0; height: 100%; }
+.ui-slider-horizontal .ui-slider-range-min { left: 0; }
+.ui-slider-horizontal .ui-slider-range-max { right: 0; }
+
+.ui-slider-vertical { width: .8em; height: 100px; }
+.ui-slider-vertical .ui-slider-handle { left: -.3em; margin-left: 0; margin-bottom: -.6em; }
+.ui-slider-vertical .ui-slider-range { left: 0; width: 100%; }
+.ui-slider-vertical .ui-slider-range-min { bottom: 0; }
+.ui-slider-vertical .ui-slider-range-max { top: 0; }
+
+p#error-messages {    
+    z-index: 250;
+    position: absolute;
+    color: red;
+    width: 100%;
+}
+div#error-holder {
+    position: relative;
+}

@@ -1,0 +1,69 @@
+<?php
+/**
+ * File edit-translation.phtml file that should be rendered when authorised user intends to
+ * edit translation form specific message
+ * 
+ *
+ * @package     Translate
+ * @author      Nigel Hurnell
+ * @version     v 1.0.0
+ * @license     BSD
+ * @copyright   Copyright (c) 2017, Nigel Hurnell
+ */
+
+namespace Translate;
+
+$this->headScript()->appendFile('/js/translate/edit-languages.js', 'text/javascript');
+$this->headTitle('Edit Translation');
+
+
+$form->get('msgid')->setAttributes([
+    'class' => 'form-control',
+    'readonly' => 'true'
+]);
+
+$form->get('msgstr')->setAttributes([
+    'class' => 'form-control',
+    'autofocus' => true,
+]);
+
+$form->get('submit')
+        ->setAttributes(['class' => 'btn btn-primary'])
+        ->setValue('Save');
+
+$form->prepare();
+?>
+
+<h1><?= $this->translate('Edit Translation') . ' - ' . $this->translate('English') . ' -> ' . $this->translate($locale); ?></h1>
+
+<div class="row">
+    <div class="col-md-6">
+        <?= $this->form()->openTag($form); ?>
+
+        <div class="form-group">
+            <?= $this->formLabel($form->get('msgid')); ?>
+            <?= $this->formElement($form->get('msgid')); ?>
+            <?= $this->formElementErrors($form->get('msgid')); ?>                  
+        </div>
+
+        <div class="form-group">
+            <?= $this->formLabel($form->get('msgstr')); ?>
+            <?= $this->formElement($form->get('msgstr')); ?>
+            <?= $this->formElementErrors($form->get('msgstr')); ?>                  
+        </div>
+
+
+
+        <?= $this->formElement($form->get('index')); ?>
+        <?= $this->formElement($form->get('type')); ?>
+        <?= $this->formElement($form->get('locale')); ?>
+        <?= $this->formElement($form->get('idx')); ?>
+        <?= $this->formElement($form->get('filepath')); ?>
+        <?= $this->formElement($form->get('csrf')); ?>
+        <?= $this->formElement($form->get('submit')); ?>
+        <a id="edit-translation-google-link" href="https://translate.google.co.uk/?hl=en&tab=wT#en/<?= $lang; ?>/<?= $msgid ?>" target="_blank" class="btn btn-primary"><?= $this->translate('Lookup on') ?> Google</a>
+
+        <?= $this->form()->closeTag(); ?>
+    </div>    
+</div>   
+

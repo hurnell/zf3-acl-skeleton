@@ -1,0 +1,58 @@
+<?php
+/**
+ * view script list-users
+ *
+ * @package     AclUser
+ * @author      Nigel Hurnell
+ * @version     v.1.0.0
+ * @license     BSD
+ * @copyright   Copyright (c) 2017, Nigel Hurnell
+ */
+
+namespace AclUser;
+
+use AclUser\Entity\User;
+
+$this->headScript()->appendFile('/js/manage-users/manage-users.js', 'text/javascript');
+$this->headLink()->appendStylesheet($this->basePath('css/manage-users/manage-users.css'));
+?>
+<table class="table" id="manage-users">
+    <tr class="header">
+        <td><?= $this->translate('Name'); ?></td>
+        <td><?= $this->translate('Email Address'); ?></td>
+        <td><?= $this->translate('Edit User Profile'); ?></td>
+        <td><?= $this->translate('Edit User Roles'); ?></td>
+        <td><?= $this->translate('Suspend User'); ?></td>
+        <td><?= $this->translate('Delete User'); ?></td>
+    </tr>
+    <?php foreach ($users as $user) : ?>
+        <?php $active = $user->getStatus() == User::STATUS_ACTIVE; ?>
+        <?php $rowClass = $active ? ' class="active-user" ' : ' class="suspended-user" ' ?>
+        <?php $suspend = $active ? 'Suspend' : 'Re-instate' ?>
+        <?php $opposite = $active ? 'Re-instate' : 'Suspend' ?>
+        <tr <?= $rowClass ?>>
+            <td><?= $this->escapeHtml($user->getFullName()); ?></td>
+            <td><?= $this->escapeHtml($user->getEmail()); ?></td>
+            <td>
+                <a href="<?= $this->url('manage-users', ['action' => 'edit-profile', 'id' => $user->getId()]); ?>" class="btn btn-primary">
+                    <?= $this->translate('Edit Profile') ?>
+                </a>
+            </td>
+            <td>
+                <a href="<?= $this->url('manage-users', ['action' => 'manage-user-roles', 'id' => $user->getId()]); ?>" class="btn btn-primary">
+                    <?= $this->translate('Edit Roles') ?>
+                </a>
+            </td>
+            <td class="suspend-user" id="<?= $user->getId(); ?>">
+                <button class="btn btn-primary" opposite="<?= $this->translate($opposite); ?>" present="<?= $this->translate($suspend); ?>">
+                    <?= $this->translate($suspend); ?>
+                </button>
+            </td>
+            <td class="delete-user" id="<?= $user->getId(); ?>">
+                <button class="btn btn-primary"  warning="<?= $this->translate('Are you sure that you want to delete this user:') . "\n" . "\n" . $this->escapeHtml($user->getFullName()); ?>">
+                    <?= $this->translate('Delete'); ?>
+                </button>
+            </td>
+        </tr>
+    <?php endforeach; ?>
+</table>

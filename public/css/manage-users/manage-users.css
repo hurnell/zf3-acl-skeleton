@@ -1,0 +1,39 @@
+
+
+div#user-role-management-div
+{
+    overflow: auto;
+}
+div#left-list{
+    float: left;
+    width: 40%;
+    margin-left: 5%;
+}
+
+div#right-list{
+    float: right;
+    width: 40%;
+    margin-right: 5%;
+}
+ul#user-roles,
+ul#possible-roles
+{   
+    list-style: none;
+    width: 100%;
+    padding: 0;
+}
+ul#user-roles li ,
+ul#possible-roles li 
+{
+    border: thin #CCC solid;
+    padding: 0.5em;
+    margin-bottom: 1em;
+}
+li.sortable-placeholder
+{
+    background-color: yellow;
+    min-height: 2.5em;
+}
+tr.suspended-user {
+    color: red;
+}

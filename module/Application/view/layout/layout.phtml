@@ -1,0 +1,96 @@
+<?php
+/**
+ * File layout.phtml default layout file into which all content in injected
+ *
+ *
+ * @package     Application
+ * @author      Nigel Hurnell
+ * @version     v 1.0.0
+ * @license     BSD
+ * @copyright   Copyright (c) 2017, Nigel Hurnell
+ */
+
+namespace Application;
+?>
+<?= $this->doctype() ?>
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <?= $this->headTitle('ZF Skeleton Application')->setSeparator(' - ')->setAutoEscape(false) ?>
+
+        <?=
+                $this->headMeta()
+                ->appendName('viewport', 'width=device-width, initial-scale=1.0')
+                ->appendHttpEquiv('X-UA-Compatible', 'IE=edge')
+        ?>
+
+        <!-- Le styles -->
+        <?=
+                $this->headLink(['rel' => 'shortcut icon', 'type' => 'image/vnd.microsoft.icon', 'href' => $this->basePath() . '/img/favicon.ico'])
+                ->prependStylesheet($this->basePath('css/popup/popup.css'))
+                ->prependStylesheet($this->basePath('css/style.css'))
+                ->prependStylesheet($this->basePath('css/bootstrap/bootstrap-theme.min.css'))
+                ->prependStylesheet($this->basePath('css/bootstrap/bootstrap.min.css'))
+        ?>
+
+        <!-- Scripts -->
+        <?=
+                $this->headScript()
+                ->prependFile($this->basePath('js/pop-up-controller/jquery-pop-up.js'))
+                ->prependFile($this->basePath('js/methods/jquery-methods.js'))
+                ->prependFile($this->basePath('js/bootstrap/bootstrap.min.js'))
+                ->prependFile($this->basePath('js/jquery/jquery-ui.min.js'))
+                ->prependFile($this->basePath('js/jquery/jquery-3.1.1.min.js'))
+        ?>
+    </head>
+    <body>
+        <?= $this->partial('partials/popup-info.phtml'); ?>
+        <div class="container">
+
+            <div class="row  nav-row">
+                <div class="col-md-12">
+                    <p class="flag-navigation"><?= $this->flagNavigation()->render($this); ?></p>
+                    <!-- Navigation bar -->
+                    <?php
+                    // Check if the activeMenuItemId passed to layout view model
+                    // and if so, use it for setting active navbar item.
+                    if (isset($activeMenuItemId)) {
+                        $this->mainMenu()->setActiveItemId($activeMenuItemId);
+                    }
+                    ?>
+                    <nav class="navbar navbar-default" role="navigation">
+                        <div class="navbar-header">
+                            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                                <span class="sr-only">Toggle navigation</span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </button>
+                        </div>
+                        <div class="collapse navbar-collapse navbar-ex1-collapse">
+                            <?= $this->navigation('Zend\Navigation\Default')->menu()->setUlClass('nav navbar-nav')->render(); ?>
+                            <?= $this->navigation('Zend\Navigation\Right')->menu()->setUlClass('nav navbar-nav navbar-right')->render(); ?>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <!-- Breadcrumbs -->
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <!-- Page content placeholder -->
+                    <?= $this->content; ?>
+                </div>
+            </div>
+            <hr>
+            <footer>
+                <p>&copy; 2017 - <?= date('Y') ?> <?= $this->translate('by'); ?> Nigel Hurnell. <?= $this->translate('All rights reserved') ?>.</p>
+            </footer>
+        </div>
+        <?= $this->inlineScript() ?>
+    </body>
+</html>

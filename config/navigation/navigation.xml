@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<navigation>
+    <default>
+        <home>
+            <label>Home</label>
+            <route>default</route>
+            <title>home title</title>
+            <id>home-id</id>
+            <controller>index</controller>
+            <action>index</action>
+            <resource>index</resource>
+            <privilege>index</privilege>     
+        </home>
+        <about>
+            <label>About</label>
+            <route>default</route>
+            <title>about title</title>
+            <id>about-id</id>
+            <controller>index</controller>
+            <action>about</action>
+            <resource>index</resource>
+            <privilege>about</privilege>     
+        </about> 
+        <manage_users>
+            <label>Users</label>
+            <route>identity</route>            
+            <data-toggle>dropdown</data-toggle>
+            <title>Manage Users</title>
+            <aria-expanded>false</aria-expanded>
+            <class>dropdown</class>
+            <resource>manage-users</resource>
+            <privilege>identity</privilege>
+            <pages>
+                <create-user>
+                    <label>Create New User</label>
+                    <route>default</route>
+                    <title>Create a New System User</title>
+                    <id>create-new-user-id</id>
+                    <controller>user-auth</controller>  
+                    <action>create-new-user</action>
+                    <resource>user-auth</resource>
+                    <privilege>create-new-user</privilege>   
+                </create-user>
+                <list-users>
+                    <label>List Users</label>
+                    <route>default</route>
+                    <title>Index Page</title>
+                    <id>index-is</id>
+                    <controller>manage-users</controller>  
+                    <action>list-users</action>
+                    <resource>manage-users</resource>
+                    <privilege>list-users</privilege>     
+                </list-users>
+                <manage-users>
+                    <label>List Users</label>
+                    <route>manage-users</route>
+                    <title>Index Page</title>
+                    <class>hide-menu</class>
+                    <id>index-is</id>
+                    <controller>manage-users</controller>  
+                    <action>manage-user-roles</action>
+                    <params>
+                        <id>1</id>
+                    </params>
+                    <resource>manage-users</resource>
+                    <privilege>manage-user-roles</privilege>     
+                </manage-users>
+            </pages> 
+        </manage_users>     
+        <translate>
+            <label>Translate</label>
+            <route>identity</route>            
+            <data-toggle>dropdown</data-toggle>
+            <title>Translations</title>
+            <aria-expanded>false</aria-expanded>
+            <class>dropdown</class>
+            <resource>translate</resource>
+            <privilege>identity</privilege>
+            <pages>
+                <choose_target_language>
+                    <label>Choose Language</label>
+                    <route>default</route>
+                    <title>Choose Target Language for Translation</title>
+                    <id>choose-target-language-id</id>
+                    <controller>translate</controller>
+                    <action>index</action>
+                    <resource>translate</resource>
+                    <privilege>index</privilege>    
+                </choose_target_language>
+                <manage_system_languages>                    
+                    <label>System Languages</label>
+                    <route>default</route>
+                    <title>Manage System Languages</title>
+                    <id>manage-system-languages-id</id>
+                    <controller>translate</controller>
+                    <action>manage-system-languages</action>
+                    <resource>translate</resource>
+                    <privilege>manage-system-languages</privilege>   
+                </manage_system_languages>
+            </pages>
+        </translate>
+    </default>  
+    <right>
+        <register>
+            <label>Register</label>
+            <route>default</route>
+            <title>Register with Application</title>
+            <id>register-id</id>
+            <controller>user-auth</controller>  
+            <action>register</action>
+            <resource>user-auth</resource>
+            <privilege>register</privilege>              
+        </register>
+        <login>
+            <label>Sign In</label>
+            <route>default</route>
+            <title>Sign In to the Application</title>
+            <id>login-id</id>
+            <controller>user-auth</controller>  
+            <action>login</action>
+            <resource>user-auth</resource>
+            <privilege>login</privilege>              
+        </login>
+        <identity>
+            <label>Identity</label>
+            <route>identity</route>
+            <data-toggle>dropdown</data-toggle>
+            <title>You Are Logged in As</title>
+            <aria-expanded>false</aria-expanded>
+            <id>identity-id</id>
+            <class>dropdown</class>   
+            <resource>user-auth</resource>
+            <privilege>identity</privilege>        
+            <pages>
+                <profile>
+                    <label>Profile</label>
+                    <route>default</route>
+                    <title>Your Profile</title>
+                    <id>settings-id</id>
+                    <class>settings-class</class>    
+                    <controller>user</controller>  
+                    <action>profile</action>
+                    <resource>user</resource>
+                    <privilege>profile</privilege>     
+                </profile>                
+                <change_password>
+                    <label>Change Password</label>
+                    <route>default</route>
+                    <title>Change your password</title>
+                    <id>change-password-id</id>
+                    <class>change-password-class</class>    
+                    <controller>user-auth</controller>  
+                    <action>change-password</action>
+                    <resource>user-auth</resource>
+                    <privilege>change-password</privilege>     
+                </change_password>                
+                <logout>
+                    <label>Sign Out</label>
+                    <route>default</route>
+                    <title>Sign Out of the Application</title>
+                    <id>logout-id</id>
+                    <class>logout-class</class>  
+                    <controller>user-auth</controller>  
+                    <action>logout</action>
+                    <resource>user-auth</resource>
+                    <privilege>logout</privilege>           
+                </logout>
+            </pages>          
+        </identity>
+       
+    </right>
+</navigation>

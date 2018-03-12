@@ -1,0 +1,67 @@
+<?php
+/**
+ * File manage-system-languages.phtml file that should be rendered so that authorised user
+ * can choose which languages are available to a user
+ * 
+ *
+ * @package     Translate
+ * @author      Nigel Hurnell
+ * @version     v 1.0.0
+ * @license     BSD
+ * @copyright   Copyright (c) 2017, Nigel Hurnell
+ */
+
+namespace Translate;
+
+$this->headTitle('Manage System Languages');
+$this->headScript()->appendFile('/js/tables/table-sorter.js', 'text/javascript');
+$this->headScript()->appendFile('/js/translate/manage-system-languages.js', 'text/javascript');
+$this->headScript()->appendFile('/js/jquery/jquery.ui.touch-punch.min.js', 'text/javascript'); // make sure drag works on mobile devices
+$this->headLink()->prependStylesheet($this->basePath('css/translate/translate.css'))
+?>
+<div>
+    <h3 class="flag_heading"><?= $this->translate('Available Languages') ?></h3>
+    <ul id="availableflags" class="connected-sortable">
+        <?php foreach ($available as $availableLanguage) : ?>
+            <?php
+            $title = $availableLanguage['language'];
+            $locale = $availableLanguage['locale'];
+            ?>
+            <li id="availableflag-<?= $locale ?>" title="<?= $title ?>" >
+                <img src="<?= $availableLanguage['src'] ?>" >
+            </li>
+        <?php endforeach; ?>
+    </ul>
+</div>
+<div class="">
+    <h3 class="flag_heading"><?= $this->translate('Enabled Languages') ?></h3>
+    <ul id="enabledflags" class="connected-sortable ">
+        <?php foreach ($enabled as $enabledLanguage) : ?>
+
+            <?php
+            $title = $enabledLanguage['language'];
+            $locale = $enabledLanguage['locale'];
+            ?>
+            <li id="enabledflag-<?= $locale ?>" title="<?= $title ?>" >
+                <img src="<?= $enabledLanguage['src'] ?>">
+            </li>
+        <?php endforeach; ?>
+    </ul>
+    <p class="drag-messsage"><b><?= $this->translate('Drag flags between sections to enable and disable site languages.'); ?></b></p>
+</div>
+<?php if (count($missing) > 0): ?>
+    <div>
+        <h3 class="flag_heading"><?= $this->translate('Missing Languages') ?></h3>
+        <p><i><?= $this->translate('To make a language available add the flag image to the public/img/flags folder.') ?></i></p>
+        <ul id="missingflags" >
+            <?php foreach ($missing as $locale => $language) : ?>
+                <?php
+                ?>
+                <li class="missing-languages"  >
+                   <p><span><?= $locale ?></span> <span><?= $this->translate($language) ?> (<?= $language ?>)</span> <span><i>public/img/flags/<?= $locale ?>.png</i></span></p>
+                </li>
+            <?php endforeach; ?>
+        </ul>
+    </div>
+    <?php
+ endif;

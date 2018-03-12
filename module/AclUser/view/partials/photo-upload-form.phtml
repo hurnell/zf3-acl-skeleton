@@ -1,0 +1,46 @@
+<?php
+/**
+ * View script ajax-get-photo-upload-form
+ *
+ * @package     AclUser
+ * @author      Nigel Hurnell
+ * @version     v.1.0.0
+ * @license     BSD
+ * @since       6 Feb 2018
+ * @copyright   Copyright (c) 2018, Nigel Hurnell 
+ */
+$locale = $this->layout()->locale;
+?>
+<div id="initial-view" >
+    <div id="error-holder">
+        <p id="error-messages">&nbsp;</p>
+    </div>
+    <div id="image-container-div" class="hidden-image-container-div">
+        <div id="image-rectangle-left">&nbsp;</div>
+        <div id="image-rectangle-top">&nbsp;</div>
+        <div id="image-rectangle-right">&nbsp;</div>
+        <div id="image-rectangle-bottom">&nbsp;</div>
+        <div id="image-holder">
+            <img src=""/>
+        </div>
+        <div id="image-rect-mask-left" class="rectangle-mask rectangle-mask-hidden">&nbsp;</div>
+        <div id="image-rect-mask-top" class="rectangle-mask rectangle-mask-hidden">&nbsp;</div>
+        <div id="image-rect-mask-right" class="rectangle-mask rectangle-mask-hidden">&nbsp;</div>
+        <div id="image-rect-mask-bottom" class="rectangle-mask rectangle-mask-hidden">&nbsp;</div>
+        <div id="left-button" tranlation-hide="<?= $this->translate('Hide Mask') ?>" tranlation-show="<?= $this->translate('Show Mask') ?>"><?= $this->translate('Show Mask') ?></div>
+        <div id="right-button"><?= $this->translate('Create') ?></div>
+        <div id="rotate-button"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 48 48">
+                <path d="M31.1 11.1l-9.1-9.1v6.14c-7.89.98-14 7.7-14 15.86s6.11 14.88 14 15.86v-4.04c-5.67-.95-10-5.88-10-11.82s4.33-10.87 10-11.82v7.82l9.1-8.9zm8.76 10.9c-.34-2.78-1.45-5.46-3.25-7.78l-2.83 2.83c1.07 1.51 1.75 3.2 2.04 4.95h4.04zm-13.86 13.81v4.05c2.78-.34 5.48-1.42 7.8-3.22l-2.87-2.87c-1.5 1.06-3.18 1.74-4.93 2.04zm7.78-4.86l2.83 2.83c1.8-2.32 2.91-5 3.25-7.78h-4.04c-.29 1.75-.97 3.44-2.04 4.95z"/>
+            </svg></div>
+        <div id="vertical-slider"> </div>
+    </div>
+    <form class="drag-and-drop-image-form" id="drag-and-drop-image-form" method="post" action="<?= $url ?>" enctype="multipart/form-data" allowed="png jpg jpeg gif" error-message="<?= $this->translate('This type of file is not supported.') ?>">
+        <input id="file-input" class="hidden-file-input" type="file" />
+        <div id="inner-holder">
+            <svg id="upload-icon" xmlns="http://www.w3.org/2000/svg" width="50" height="43" viewBox="0 0 50 43"><path d="M48.4 26.5c-.9 0-1.7.7-1.7 1.7v11.6h-43.3v-11.6c0-.9-.7-1.7-1.7-1.7s-1.7.7-1.7 1.7v13.2c0 .9.7 1.7 1.7 1.7h46.7c.9 0 1.7-.7 1.7-1.7v-13.2c0-1-.7-1.7-1.7-1.7zm-24.5 6.1c.3.3.8.5 1.2.5.4 0 .9-.2 1.2-.5l10-11.6c.7-.7.7-1.7 0-2.4s-1.7-.7-2.4 0l-7.1 8.3v-25.3c0-.9-.7-1.7-1.7-1.7s-1.7.7-1.7 1.7v25.3l-7.1-8.3c-.7-.7-1.7-.7-2.4 0s-.7 1.7 0 2.4l10 11.6z"></path></svg>
+            <p id="file-chooser-paragraph"><span id="file-chooser" ><?= $this->translate('Choose image to upload') ?></span><span id="drag-here-span"> <?= $this->translate('or drag it here') ?></span></p>
+        </div>
+        <button id="file-upload-button" class="hidden-upload-button" type="submit"><?= $this->translate('Upload') ?></button>
+    </form>
+</div>
+

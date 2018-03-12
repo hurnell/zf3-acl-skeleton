@@ -1,0 +1,44 @@
+
+
+ul.connected-sortable {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+ul.connected-sortable li {
+    margin: 1em 0 0 1em;
+    display: inline-block;
+    border: thin #ccc solid;
+}
+ul.connected-sortable li.ui-sortable-placeholder
+{
+    margin: 1em 0 0 1em;
+    display: inline-block;
+    border: thin #ccc solid;
+    background-color: #ccc;
+    width: 32px;
+    height: 12px;
+}
+h3.flag-heading{
+    padding: 0.5em;
+    margin: 0;
+    clear: both;
+}
+ul#enabledflag {
+    margin-bottom: 1em;
+}
+ul#missingflags {
+    list-style: none;
+}
+ul#missingflags p
+{
+    line-height: 3em;
+}
+ul#missingflags li span {
+    border: 2px #ccc solid;
+    border-radius: 5px;
+    padding: 0.5em;
+}
+p.drag-messsage{
+    padding: 1em;
+}

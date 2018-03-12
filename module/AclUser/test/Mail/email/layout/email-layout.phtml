@@ -1,0 +1,29 @@
+<?php
+/**
+ * view script confirm-account-email
+ *
+ * @package     AclUser
+ * @author      Nigel Hurnell
+ * @version     v.1.0.0
+ * @license     BSD
+ * @copyright   Copyright (c) 2017, Nigel Hurnell
+ */
+
+namespace AclUser;
+?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN>
+<html>
+    <head>
+        <style>
+            img#logo
+            {
+                width: 200px;
+            }
+        </style>
+    </head>
+    <body>
+        <img id="layoutImageOne" src="cid:<?= $layoutImageOne?>" />
+        <img id="layoutImageTwo" src="cid:<?= $layoutImageTwo?>" />
+        <?= $this->content; ?>
+    </body>
+</html>

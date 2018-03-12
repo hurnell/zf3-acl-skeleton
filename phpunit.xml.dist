@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<phpunit 
+    processIsolation="false"
+    stopOnError="false"
+    stopOnFailure="false"
+    stopOnIncomplete="false"
+    stopOnSkipped="false"
+    stopOnRisky="false"
+    verbose="true"
+    colors="true"
+>
+    <testsuites>
+        <testsuite name="ZendSkeletonApplication Test Suite">
+            
+            <directory>./module/Application/test</directory>
+            <directory>./module/AclUser/test</directory>
+            <directory>./module/Social/test</directory>            
+            <directory>./module/Translate/test</directory>
+            
+            <!-- CONTROLLER FILES -->
+            <!--file>./module/AclUser/test/Controller/AuthControllerTest.php</file-->
+            <!--file>./module/AclUser/test/Controller/ManageUsersControllerTest.php</file-->
+            <!--file>./module/AclUser/test/Controller/UserControllerTest.php</file-->
+            
+            <!--file>./module/Application/test/Controller/IndexControllerTest.php</file-->
+            <!--file>./module/Application/test/Controller/SingleTest.php</file-->
+            
+            <!--file>./module/Social/test/Controller/SocialControllerTest.php</file-->
+            
+            <!--file>./module/Translate/test/Controller/TranslationControllerTest.php</file-->
+            
+            <!-- SERVICE FILES -->
+            <!--file>./module/AclUser/test/Service/AuthAdapterServiceTest.php</file-->
+            <!--file>./module/AclUser/test/Service/AuthManagerServiceTest.php</file-->
+            <!--file>./module/AclUser/test/Service/ManageUsersManagerServiceTest.php</file-->
+            <!--file>./module/AclUser/test/Service/UserManagerServiceTest.php</file-->
+            <!--file>./module/AclUser/test/Service/RotateAndResizeImageFileServiceTest.php</file-->
+            
+            <!--file>./module/Translate/test/Service/TranslationManagerServiceTest.php</file-->
+            <!--file>./module/Translate/test/Service/TranslationSaverServiceTest.php</file-->
+            
+            <!-- PROVIDER FILES -->
+            <!--file>./module/Social/test/Providers/GoogleProviderTest.php</file-->
+            <!--file>./module/Social/test/Providers/FacebookProviderTest.php</file-->
+            <!--file>./module/Social/test/Providers/FoursquareProviderTest.php</file-->
+            <!--file>./module/Social/test/Providers/GitHubProviderTest.php</file-->
+            <!--file>./module/Social/test/Providers/YahooProviderTest.php</file-->
+            <!--file>./module/Social/test/Providers/YandexProviderTest.php</file-->
+            <!--file>./module/Social/test/Providers/LinkedInProviderTest.php</file-->
+            <!--file>./module/Social/test/Providers/TwitterProviderTest.php</file-->
+            
+            <!-- OTHER FILES -->
+            <!--file>./module/Application/test/Log/LogTest.php</file-->
+            <!--file>./module/Application/test/Service/CookieManagerServiceTest.php</file-->
+            <!--file>./module/Translate/test/View/Helper/FlagNavigationViewHelperTest.php</file-->
+            <!--file>./module/AclUser/test/Mail/MailMessageServiceTest.php</file-->
+            <!--file>./module/Social/test/Http/HttpClientTest.php</file-->
+            
+            
+            
+            
+            <exclude>./module/Application/test/Controller/SingleTest.php</exclude>
+            
+        </testsuite>
+    </testsuites>
+    <filter>
+        <whitelist processUncoveredFilesFromWhitelist="true">
+            <directory suffix=".php">./module/AclUser/src</directory>
+            <directory suffix=".php">./module/Application/src</directory>
+            <directory suffix=".php">./module/Social/src</directory>
+            <directory suffix=".php">./module/Translate/src</directory>
+        </whitelist>
+    </filter>
+    <logging>
+        <log type="coverage-html" target="../docs/skeleton-tests" lowUpperBound="35"
+             highLowerBound="70"/>        
+    </logging>
+</phpunit>

@@ -1,0 +1,5 @@
+to create a new language or language in a module or vendor module:
+ON THE SERVER:
+copy po file in data/translation_file_template/ to the location you need
+
+rename in the format fr_FR (fr_FR.po) and edit line nine "Language" to the language used  

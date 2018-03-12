@@ -1,0 +1,26 @@
+<?php
+
+use Doctrine\DBAL\Driver\PDOMySql\Driver as PDOMySqlDriver;
+
+return [
+    'doctrine' => [
+        'connection' => [
+// Default DB connection
+            'orm_default' => [
+                'driverClass' => PDOMySqlDriver::class,
+                'params' => [
+                    'host' => '127.0.0.1',
+                    'user' => '<database-user-name>',
+                    'port' => '3306',
+                    'password' => '<database-user-password>',
+                    'dbname' => '<database-name>',
+                    'charset' => 'utf8',
+                    'driverOptions' => array(
+                        1002 => 'SET NAMES utf8',
+                        'x_reconnect_attempts' => 10
+                    )
+                ],
+            ],
+        ],
+    ],
+];

@@ -1,0 +1,81 @@
+<?php
+
+/*
+ * local is where keys and secrets are stored
+ */
+return [
+    'social-config' => [
+        /**
+         * Facebook Client ID (This is the "App ID" in facebook console.)
+         */
+        'facebook_client_id' => '<facebook_client_id>',
+        /**
+         * Facebook Secret (This is the "App Secret" in the facebook console
+         */
+        'facebook_secret' => '<facebook_secret>',
+        /**
+         * Foursquare Client ID
+         */
+        'foursquare_client_id' => '<foursquare_client_id>',
+        /**
+         * Foursquare Secret
+         */
+        'foursquare_secret' => '<foursquare_secret>',
+        /**
+         * GitHub Client ID
+         */
+        'git_hub_client_id' => '<git_hub_client_id>',
+        /**
+         * GitHub Secret
+         */
+        'git_hub_secret' => '<git_hub_secret>',
+        /**
+         * Google Client Id
+         */
+        'google_client_id' => '<google_client_id>',
+        /**
+         * Google Secret
+         */
+        'google_secret' => '<google_secret>',
+        /**
+         * Linked in Client Id
+         */
+        'linked_in_client_id' => '<linked_in_client_id>',
+        /**
+         * LinkedIn Secret
+         */
+        'linked_in_secret' => '<linked_in_secret>',
+        /**
+         * Windows Live in Client Id
+         */
+        'live_client_id' => '<live_client_id>',
+        /**
+         * Windows Live Secret (password)
+         */
+        'live_secret' => '<live_secret>',
+        /**
+         * Twitter Consumer Key
+         */
+        'twitter_consumer_key' => '<twitter_consumer_key>',
+        /**
+         * Twitter Consumer Secret
+         */
+        'twitter_consumer_secret' => '<twitter_consumer_secret>',
+        /**
+         * Yahoo in Client Id
+         */
+        'yahoo_client_id' => '<yahoo_client_id>',
+        /**
+         * Yahoo Secret
+         */
+        'yahoo_secret' => '<yahoo_secret>',
+        /**
+         * Yandex Client Id
+         */
+        'yandex_client_id' => '<yandex_client_id>',
+        /**
+         * Yandex Secret
+         */
+        'yandex_secret' => '<yandex_secret>',
+    ]
+];

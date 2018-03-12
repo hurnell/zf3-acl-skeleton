@@ -1,0 +1,23 @@
+<?php
+/**
+ * view script confirm-account-email
+ *
+ * @package     AclUser
+ * @author      Nigel Hurnell
+ * @version     v.1.0.0
+ * @license     BSD
+ * @copyright   Copyright (c) 2017, Nigel Hurnell
+ */
+
+namespace AclUser;
+?>
+<p><?= $this->translate('Dear'); ?> <?= $user->getFullName() ?>,</p>
+<p><?= $this->translate('Please follow the link below to activate your account') ?>:</p>
+<?php
+$href = $this->url('send-token', ['action'=>'confirm-account', 'token' => $token, 'locale' => $this->layout()->locale], ['force_canonical' => true])
+?>
+<p><a href="<?= $href ?>" ><?= $href ?></a></p>
+<?php if($social):?>
+<p><?= $this->translate('Once you have activated your account you can log in with your social media provider.')?></p>
+<?php endif;?>
+<p><?= $this->translate('Please note that this account activation token will expire in six hours') ?></p>

@@ -1,0 +1,42 @@
+<?php
+/**
+ * File index.phtml file that should be rendered so that authorised user
+ * can choose what messages in what language to update
+ * 
+ *
+ * @package     Translate
+ * @author      Nigel Hurnell
+ * @version     v 1.0.0
+ * @license     BSD
+ * @copyright   Copyright (c) 2017, Nigel Hurnell
+ */
+
+namespace Translate;
+
+$this->headTitle('Translation Index');
+?>
+
+<h1><?= $this->translate('Translation Index'); ?>
+    <?php if ($this->aclViewHelper()->userIsAllowed('translate', 'manage-system-languages')): ?>
+        <a href="<?= $this->url('default', ['controller' => 'translate', 'action' => 'manage-system-languages']) ?>" class="btn btn-primary float-right"><?= $this->translate('Manage System Languages'); ?></a>
+    <?php endif; ?>
+</h1>
+
+<table class="table">
+    <tr>
+        <th><?= $this->translate('Languages'); ?></th>
+        <th><?= $this->translate('Translate'); ?></th>
+    </tr>
+    <?php foreach ($locales as $locale) : ?>
+        <?php if ($this->aclViewHelper()->userIsAllowed('translate', $locale)): ?>
+            <tr>
+                <td><?= $this->translate($locale) ?></td>
+                <td>
+                    <a href="<?= $this->url('translate', ['action' => 'edit', 'language' => $locale, 'type' => 'all']) ?>" class="btn btn-primary"><?= $this->translate('All'); ?></a>
+                    <a href="<?= $this->url('translate', ['action' => 'edit', 'language' => $locale, 'type' => 'untranslated']) ?>" class="btn btn-primary"><?= $this->translate('Untranslated'); ?></a>
+                </td>
+            </tr>
+        <?php endif; ?>
+    <?php endforeach; ?>
+</table>
+

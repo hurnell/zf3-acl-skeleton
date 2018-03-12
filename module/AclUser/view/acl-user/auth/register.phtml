@@ -1,0 +1,87 @@
+<?php
+/**
+ * View script register
+ *
+ * @package     AclUser
+ * @author      Nigel Hurnell
+ * @version     v.1.0.0
+ * @license     BSD
+ * @since       19 Jan 2018
+ * @copyright   Copyright (c) 2018, Nigel Hurnell 
+ */
+
+namespace AclUser;
+
+$this->headLink()->appendStylesheet('/css/social/social-auth.css');
+$this->headTitle('Register New user');
+?>
+<div class = "row">
+    <div class = "col-md-offset-3 col-md-6">
+        <?= $this->flashMessenger()->render('success', array('alert', 'alert-success')); ?>
+        <?= $this->form()->openTag($form); ?>
+        <h2><?= $this->translate('Register New User') ?></h2>
+        <table class="user-auth"> 
+            <tr>
+                <td class="right"><?= $this->formLabel($form->get('full_name')); ?></td>
+                <td><?= $this->formElement($form->get('full_name')); ?></td>
+            </tr>
+            <tr>
+                <td colspan="2"><?= $this->formElementErrors($form->get('full_name')); ?></td>
+            </tr>
+            <tr>
+                <td class="right"><?= $this->formLabel($form->get('email')); ?></td>
+                <td><?= $this->formElement($form->get('email')); ?></td>
+            </tr>
+            <tr>
+                <td colspan="2"><?= $this->formElementErrors($form->get('email')); ?></td>
+            </tr>
+            <tr>
+                <td class="right"><?= $this->formLabel($form->get('password')); ?></td>
+                <td><?= $this->formElement($form->get('password')); ?></td>
+            </tr>
+            <tr>
+                <td colspan="2"><?= $this->formElementErrors($form->get('password')); ?></td>
+            </tr>
+            <tr>
+                <td class="right"><?= $this->formLabel($form->get('confirm_password')); ?></td>
+                <td><?= $this->formElement($form->get('confirm_password')); ?></td>
+            </tr>
+            <tr>
+                <td colspan="2"><?= $this->formElementErrors($form->get('confirm_password')); ?></td>
+            </tr>
+            <tr>
+                <td colspan="2"><?= $this->formElementErrors($form->get('password')); ?></td>
+            </tr>
+
+            <?php
+            if ($withCaptcha):
+                $captcha = $form->get('captcha')->getCaptcha();
+                $captcha->generate();
+                ?>
+                <tr>
+                    <td  colspan="2" class="center-content">
+                        <img width="<?= $captcha->getWidth() ?>" height="<?= $captcha->getHeight() ?>" src="<?= $captcha->getImgUrl() . $captcha->getId() . $captcha->getSuffix(); ?>" alt="<?= $captcha->getImgAlt() ?>">
+                    </td>
+                </tr>
+                <tr>
+                    <td class="right"><?= $this->formLabel($form->get('captcha')); ?></td>
+                    <td>
+                        <input type="text" name="captcha[input]" />
+                        <input type="hidden" value="<?= $captcha->getId() ?>" name="captcha[id]">
+                    </td>
+                </tr>
+            <?php endif; ?>
+            <tr>
+                <td colspan="2"><?= $this->formElement($form->get('submit')) ?></td>
+            </tr>
+        </table>
+        <?= $this->formElement($form->get('csrf')) ?>
+        <?= $this->formElementErrors($form->get('csrf')) ?>
+
+        <?= $this->form()->closeTag(); ?>
+        <?php if ($withCaptcha): ?>
+            <?= $this->socialProvider()->setBaseUrl($this->url('social', ['action' => 'start-registration', 'provider' => 'substitutable-provider']))->render('registration'); ?>
+        <?php endif; ?>
+    </div>
+</div>
+

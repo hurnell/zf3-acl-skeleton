@@ -1,0 +1,32 @@
+<?php
+/**
+ * view script confirm-account-email
+ *
+ * @package     AclUser
+ * @author      Nigel Hurnell
+ * @version     v.1.0.0
+ * @license     BSD
+ * @copyright   Copyright (c) 2017, Nigel Hurnell
+ */
+
+namespace AclUser;
+
+use org\bovigo\vfs\vfsStream;
+?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN>
+<html>
+    <head>
+        <style>
+            img#logo
+            {
+                width: 200px;
+            }
+        </style>
+    </head>
+    <body>
+        <img src="<?= vfsStream::url('root/path/to/inline/images/five.png') ?>" class="embed-image">
+        <img src="<?= vfsStream::url('root/path/to/inline/images/six.png') ?>" class="embed-image">
+        <img src="<?= vfsStream::url('root/path/to/inline/images/missing.png') ?>" class="embed-image">
+<?= $this->content; ?>
+    </body>
+</html>

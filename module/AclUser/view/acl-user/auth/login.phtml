@@ -1,0 +1,56 @@
+<?php
+/**
+ * view script login
+ * File to render the user login page
+ * 
+ * @package     AclUser
+ * @author      Nigel Hurnell
+ * @version     v.1.0.0
+ * @license     BSD
+ * @copyright   Copyright (c) 2017, Nigel Hurnell
+ */
+
+
+$this->headLink()->appendStylesheet('/css/social/social-auth.css');
+?>
+<?php $this->headTitle('Sign in'); ?>
+<div class = "row">
+    <div class = "col-md-offset-4 col-md-4">
+        <?= $this->flashMessenger()->render('error', array('alert', 'alert-danger')); ?>
+        <?= $this->flashMessenger()->setTranslatorEnabled(false)->render('email', array('alert', 'alert-danger')); ?>
+        <?= $this->flashMessenger()->render('success', array('alert', 'alert-success')); ?>
+        <?= $this->form()->openTag($form); ?>
+        <?= $this->formElement($form->get('csrf')) ?>
+        <h2 class = "form-signin-heading">Please sign in</h2>
+        <table class="user-auth">
+            <tr>
+                <td class="right"><?= $this->formLabel($form->get('email')); ?></td>
+                <td colspan="2"><?= $this->formElement($form->get('email')); ?></td>
+            </tr>
+            <tr>
+                <td colspan="3"><?= $this->formElementErrors($form->get('email')); ?></td>
+            </tr>
+            <tr>
+                <td class="right"><?= $this->formLabel($form->get('password')); ?></td>
+                <td colspan="2"><?= $this->formElement($form->get('password')); ?></td>
+            </tr>
+            <tr>
+
+                <td colspan="3"><?= $this->formElementErrors($form->get('password')); ?></td>
+            </tr>
+            <tr>
+                <td class="right"><?= $this->formElement($form->get('remember_me')); ?></td>
+                <td colspan="2" ><?= $this->formLabel($form->get('remember_me')); ?></td>
+            </tr>
+            <tr>
+                <td colspan="3" ><a href="<?= $this->url('default', ['controller' => 'user', 'action' => 'forgotten-password']) ?>"><?= $this->translate('Forgot password?'); ?></a></td>
+            </tr>
+        </table>
+        <?= $this->formElement($form->get('redirect_url')); ?>
+        <?= $this->formElementErrors($form->get('csrf')) ?>
+        <?= $this->formElement($form->get('submit')) ?>
+        <?= $this->form()->closeTag(); ?>
+        <?= $this->socialProvider()->setBaseUrl($this->url('social', ['action' => 'start-login', 'provider' => 'substitutable-provider']))->render('login'); ?>
+        <!--?= $this->socialProvider()->setBaseUrl($this->url('social', ['action' => 'start-login-or-registration', 'provider' => 'substitutable-provider']))->render('login'); ?-->
+    </div>
+</div>

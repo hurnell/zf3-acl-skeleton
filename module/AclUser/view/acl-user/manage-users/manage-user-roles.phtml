@@ -1,0 +1,46 @@
+<?php
+/**
+ * view script manage-user-roles
+ *
+ * @package     AclUser
+ * @author      Nigel Hurnell
+ * @version     v.1.0.0
+ * @license     BSD
+ * @copyright   Copyright (c) 2017, Nigel Hurnell
+ */
+
+namespace AclUser;
+
+$this->headScript()->appendFile('/js/tables/table-sorter.js', 'text/javascript');
+$this->headScript()->appendFile('/js/manage-users/manage-users.js', 'text/javascript');
+$this->headLink()->appendStylesheet($this->basePath('css/manage-users/manage-users.css'));
+//$this->getServiceLocator()->get('viewhelpermanager')->get('headLink')->appendStylesheet('/css/manage-users/manage-user-roles.css');
+//$this->getServiceLocator()->get('viewhelpermanager')->get('headScript')->appendFile('/js/manage-users/manage-user-roles.js');
+?>
+<div id="user-role-management-div">
+    <p><?= $this->translate('Manage User Roles for: ') . $user->getEmail() ?></p>
+    <div id="left-list">
+        <ul id="user-roles" class="connected_sortable" uid="<?= $user->getId() ?>">
+            <li class="unsortable sortable-placeholder">
+                <?= $this->translate('User Roles') ?>
+            </li>
+            <?php foreach ($this->userRoles as $userRole) : ?>
+                <li id="<?= $userRole->getRole()->getId() ?>" title="<?= $userRole->getRole()->getDescription() ?>">
+                    <?= $userRole->getRole()->getName(); ?>
+                </li>            
+            <?php endforeach; ?>
+        </ul>
+    </div>
+    <div id="right-list">
+        <ul id="possible-roles" class="connected_sortable">
+            <li  class="unsortable sortable-placeholder">
+                <?= $this->translate('Possible Roles'); ?>
+            </li>
+            <?php foreach ($this->possibleRoles as $possibleRole) : ?>
+                <li id="<?= $possibleRole->getId() ?>" title="<?= $possibleRole->getDescription() ?>">
+                    <?= $possibleRole->getName(); ?>
+                </li>
+            <?php endforeach; ?>
+        </ul>
+    </div>
+</div>

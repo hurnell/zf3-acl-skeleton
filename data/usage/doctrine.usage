@@ -1,0 +1,22 @@
+./vendor/doctrine/doctrine-module/bin/doctrine-module orm:convert-mapping  --namespace="Translate\\Entity\\" --force  --from-database annotation ./module/Translate/src/ --filter="Language"
+ll module/Translate/src/
+mkdir module/Translate/src/Entity
+mv module/Translate/src/Translate/Entity/* module/Translate/src/Entity/
+
+ ./vendor/doctrine/doctrine-module/bin/doctrine-module orm:generate-entities ./module/Translate/src/ --generate-annotations=true --generate-methods=true  --regenerate-entities=true  --filter="Language"
+
+remember to add if new module to module.comfig.php::::
+'doctrine' => [
+        'driver' => [
+            __NAMESPACE__ . '_driver' => [
+                'class' => AnnotationDriver::class,
+                'cache' => 'array',
+                'paths' => [__DIR__ . '/../src/Entity']
+            ],
+            'orm_default' => [
+                'drivers' => [
+                    __NAMESPACE__ . '\Entity' => __NAMESPACE__ . '_driver'
+                ]
+            ]
+        ]
+    ],

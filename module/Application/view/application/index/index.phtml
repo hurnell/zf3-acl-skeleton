@@ -1,0 +1,44 @@
+<?php
+/**
+ * File index.phtml file that should be rendered for the home page of the application
+ * 
+ *
+ * @package     Application
+ * @author      Nigel Hurnell
+ * @version     v 1.0.0
+ * @license     BSD
+ * @copyright   Copyright (c) 2017, Nigel Hurnell
+ */
+
+namespace Application;
+?>
+<?php $this->headTitle('Welcome'); ?>
+
+<h1><?= $this->translate('Welcome') ?></h1>
+
+<?= $this->flashMessenger()->render('error', array('alert', 'alert-danger')); ?>
+<?= $this->flashMessenger()->render('success', ['alert', 'alert-success']); ?>
+<?= $this->flashMessenger()->setTranslatorEnabled(false)->render('authorised_user', ['alert', 'alert-success']); ?>
+
+<p><?= $this->translate('This is a Zend Framework 3 application that incorporates the following modules:') ?></p>
+<section>
+    <ul>
+        <li><?= $this->translate('XML based navigation') ?> </li>
+        <li><?= $this->translate('A role/resource/privilege based access control system based on Zend ACL') ?></li>
+        <li><?= $this->translate('A Social Login module that allows users to Sign in and Register through their favourite social media platform') ?></li>
+        <li><?= $this->translate('An internationalisation and translation module') ?></li>
+    </ul>
+</section>
+<h4><?= $this->translate('The Sign in button in the top right corner allows users can gain access to (parts of) the application:') ?></h4>
+<section>
+    <p><?= $this->translate('Admin user who has access to all sections') ?></p>
+    <ul>
+        <li><?= $this->translate('Username:') ?> <em>admin@application.com</em></li>
+        <li><?= $this->translate('Password:') ?> <em>Secret#p@ss</em></li>
+    </ul>    
+    <p><?= $this->translate('Test User So that you can experiment with the user roles') ?></p>
+    <ul>
+        <li><?= $this->translate('Username:') ?> <em>test@application.com</em></li>
+        <li><?= $this->translate('Password:') ?> <em>TestUser#p@ss</em></li>
+    </ul>    
+</section>

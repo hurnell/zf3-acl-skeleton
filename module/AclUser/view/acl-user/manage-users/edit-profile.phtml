@@ -1,0 +1,18 @@
+<?php
+/**
+ * View script edit-profile
+ *
+ * @package     AclUser
+ * @author      Nigel Hurnell
+ * @version     v.1.0.0
+ * @license     BSD
+ * @since       13 Feb 2018
+ * @copyright   Copyright (c) 2018, Nigel Hurnell 
+ */
+
+namespace AclUser;
+?>
+<div id="profile-div" class="col-md-offset-4 col-md-4">
+    <h2 class="center-content"><?= $this->translate('Profile for'); ?> <?= $user->getFullName(); ?></h2>
+    <?= $this->partial('partials/profile-partial.phtml'); ?>
+</div>

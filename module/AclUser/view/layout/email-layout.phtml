@@ -1,0 +1,28 @@
+<?php
+/**
+ * layout view script for sending e-mails
+ *
+ * @package     AclUser
+ * @author      Nigel Hurnell
+ * @version     v.1.0.0
+ * @license     BSD
+ * @copyright   Copyright (c) 2017, Nigel Hurnell
+ */
+
+namespace AclUser;
+?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN>
+<html>
+    <head>
+        <style>
+            img#logo
+            {
+                width: 200px;
+            }
+        </style>
+    </head>
+    <body>
+        <img id="logo" class="embed-image" src="<?= $this->url('public', [], ['force_canonical' => true]) ?>/img/logo/e-mail-header.png" />
+        <?= $this->content; ?>
+    </body>
+</html>

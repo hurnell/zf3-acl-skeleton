@@ -1,0 +1,30 @@
+div#social-sign-in-div
+{
+    text-align: center;
+}
+div#social-sign-in-div ul.social-providers-list{
+    list-style: none;    
+    padding: 0;
+    margin: 0;
+}
+
+div#social-sign-in-div ul.social-providers-list img {
+    width: 15em;
+    border: thin #ccc solid;
+    margin: 1em;
+}
+p.social-start-pages
+{
+    text-align: center;
+    background-image: linear-gradient(to bottom,#337ab7 0,#265a88 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff337ab7', endColorstr='#ff265a88', GradientType=0);
+    filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);
+    background-repeat: repeat-x;
+    border-color: #245580;
+    margin-top: 0.5em;
+}
+p.social-start-pages a
+{
+    color: white;
+
+}

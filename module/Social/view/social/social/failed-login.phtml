@@ -1,0 +1,19 @@
+<?php
+
+/**
+ * view script failed-login
+ * Displays errors to users when social log-in or registration fails
+ * 
+ * @package     Social
+ * @author      Nigel Hurnell
+ * @version     v.1.0.0
+ * @license     BSD
+ * @copyright   Copyright (c) 2017, Nigel Hurnell
+ */
+
+namespace Social;
+
+?>
+<?= $this->headTitle('Failed Login') ?>
+<?= $this->flashMessenger()->render('error', array('alert', 'alert-danger')); ?>
+<?= $this->flashMessenger()->setTranslatorEnabled(false)->render('email', array('alert', 'alert-danger')); ?>
